@@ -1,12 +1,14 @@
 <script>
 
   async function getInfo () {
-    return await fetch('.netlify/functions/siteimprove', {
+    const res = await fetch('.netlify/functions/siteimprove', {
 			method: 'POST',
 			body: JSON.stringify({
 				endpoint: "sites"
 			})
     })
+    console.log(res)
+    return res
   }
 
   let promise = getInfo()
