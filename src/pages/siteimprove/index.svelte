@@ -7,8 +7,8 @@
 				endpoint: "sites"
 			})
     })
-    const json = await res.json()
-    console.log(res)
+    const json = await res.text()
+    console.log(json)
     return json
   }
 
@@ -19,5 +19,5 @@
 {#await promise}
 	<p>...waiting</p>
 {:then result}
-	<p>Successful GET from {result.msg.account_name}</p>
+	<p>Successful GET from {result}</p>
 {/await}
