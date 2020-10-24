@@ -1,7 +1,7 @@
 <script>
 
   async function getInfo () {
-    const res = await fetch('.netlify/functions/siteimprove')
+    const res = await fetch('/.netlify/functions/siteimprove')
     
     const ret = await res.text()
 
