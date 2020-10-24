@@ -1,0 +1,11 @@
+
+[build]
+  publish = "dist/"
+  command = "npm run build"
+  functions = "api/"
+
+[[redirects]]
+  # SPA only
+  from = "/*"
+  to = "/__app.html"
+  status = 200
