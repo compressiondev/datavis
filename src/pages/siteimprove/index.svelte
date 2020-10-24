@@ -1,20 +1,16 @@
 <script>
 
   async function getInfo () {
-    const res = await fetch('.netlify/functions/siteimprove', {
-			method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        "endpoint": "sites"
-      }),
-    })
-    return res.json()
+    const res = await fetch('.netlify/functions/siteimprove')
+    
+    const ret = await res.text()
+
+    console.log(ret)
+
+    return ret
   }
 
-  getInfo().then(response => console.log(response))
+  getInfo()
 
 </script>
 
