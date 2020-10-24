@@ -2,11 +2,12 @@ const fetch = require('node-fetch')
 
 exports.handler = async function (event) {
   
-  const query = event ? JSON.parse(event.body) : { "endpoint": "" }
-  console.log(query)
+  // const query = event ? JSON.parse(event.body) : { "endpoint": "" }
+  // console.log(query)
 
   try {
-    const response = await fetch(`https://api.siteimprove.com/v2/${query.endpoint}`, {
+    // const response = await fetch(`https://api.siteimprove.com/v2/${query.endpoint}`, {
+    const response = await fetch(`https://api.siteimprove.com/v2/`, {
       headers: { 
         Accept: 'application/json',
         Authorization: 'Basic ' + Buffer.from(process.env.SITEIMPROVE_USERNAME + ":" + process.env.SITEIMPROVE_API_KEY).toString('base64')

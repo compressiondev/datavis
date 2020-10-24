@@ -3,21 +3,19 @@
   async function getInfo () {
     const res = await fetch('.netlify/functions/siteimprove', {
 			method: 'POST',
-			body: JSON.stringify({
-				endpoint: "sites"
-			})
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        "endpoint": "sites"
+      }),
     })
-    const json = await res.text()
-    console.log(json)
-    return json
+    return res.json()
   }
 
-  let promise = getInfo()
+  getInfo().then(response => console.log(response))
 
 </script>
 
-{#await promise}
-	<p>...waiting</p>
-{:then result}
-	<p>Successful GET from {result}</p>
-{/await}
+See console
