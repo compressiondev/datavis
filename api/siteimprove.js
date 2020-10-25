@@ -1,13 +1,13 @@
 const fetch = require('node-fetch')
 
 exports.handler = async function (event) {
-  
-  // const query = event ? JSON.parse(event.body) : { "endpoint": "" }
-  // console.log(query)
+  const params = event.queryStringParameters
+  const endpoint = params.endpoint ? params.endpoint : ""
+  console.log(params)
 
   try {
-    // const response = await fetch(`https://api.siteimprove.com/v2/${query.endpoint}`, {
-    const response = await fetch(`https://api.siteimprove.com/v2/`, {
+    const response = await fetch(`https://api.siteimprove.com/v2/${endpoint}`, {
+    // const response = await fetch(`https://api.siteimprove.com/v2/`, {
       headers: { 
         Accept: 'application/json',
         Authorization: 'Basic ' + Buffer.from(process.env.SITEIMPROVE_USERNAME + ":" + process.env.SITEIMPROVE_API_KEY).toString('base64')
