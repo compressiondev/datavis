@@ -18,32 +18,15 @@
 
 <style>
 
-  main {
-    max-width: 800px;
-    margin: auto;
-  }
-
-  table {
-    border: 1px solid #999;
-  }
-
-  thead {
-    font-weight: bold;
-  }
-
-  tbody td {
-    border: 1px solid black;
-  }
-
 </style>
 
-<main>
-  <h1>Rapportverktøy for Siteimprove NTNU (alfaversjon)</h1>
+<main class="container mx-auto prose">
+  <h1 class="">Rapportverktøy for Siteimprove NTNU (alfaversjon)</h1>
   <h3>Sites</h3>
   {#await sites}
     <p>Loading sites...</p>
   {:then response}
-    <table>
+    <table class="table-auto">
       <thead><tr><td>Site name</td><td>ID</td></tr></thead>
       <tbody>
       {#each response.msg.items as link}

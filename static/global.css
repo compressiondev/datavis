@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
 	font-family: 'Open Sans';
 	src: url('/fonts/opensans-regular-webfont.woff2') format('woff2'),
 			 url('/fonts/opensans-regular-webfont.woff') format('woff');
@@ -71,4 +71,4 @@ button:not(:disabled):active {
 
 button:focus {
 	border-color: #666;
-}
+} */
