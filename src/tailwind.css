@@ -5,5 +5,17 @@
 @import 'tailwindcss/utilities';
 
 h1 {
-  @apply text-2xl;
+  @apply text-2xl font-bold mt-12;
+}
+
+h3 {
+  @apply text-xl font-semibold pt-12;
+}
+
+body {
+  @apply bg-gray-300;
+}
+
+pre {
+  @apply rounded-lg bg-gray-800 p-6 text-white whitespace-pre-wrap;
 }

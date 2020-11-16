@@ -9,11 +9,13 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Roboto', ...defaultTheme.fontFamily.sans],
+        sans: ['Open Sans', ...defaultTheme.fontFamily.sans],
       },
     },
   },
-  variants: {},
+  variants: {
+    backgroundColor: ['responsive', 'odd', 'hover', 'focus'],
+  },
   plugins: [
     require('@tailwindcss/typography'),
   ],

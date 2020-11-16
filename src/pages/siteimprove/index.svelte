@@ -10,7 +10,7 @@
 
   const sites = querySiteimprove({endpoint: "sites"})
 
-  const query = querySiteimprove({endpoint: "settings"})
+  const query = querySiteimprove({endpoint: "sites/1351807894/analytics/overview/groups?page_size=500"})
   
   sites.then(res => console.log(res))
 
@@ -20,26 +20,44 @@
 
 </style>
 
-<main class="container mx-auto prose">
-  <h1 class="">Rapportverktøy for Siteimprove NTNU (alfaversjon)</h1>
-  <h3>Sites</h3>
-  {#await sites}
-    <p>Loading sites...</p>
-  {:then response}
-    <table class="table-auto">
-      <thead><tr><td>Site name</td><td>ID</td></tr></thead>
-      <tbody>
-      {#each response.msg.items as link}
-        <tr><td>{link.site_name}</td><td>{link.id}</td></tr>
-      {/each}
-      </tbody>
-    </table>
-  {/await}
 
-  <h3>Query response</h3>
-  {#await query}
-    <p>Loading query response...</p>
-  {:then response}
-    <pre>{ JSON.stringify(response, null, '\t') }</pre>
-  {/await}
-</main>
+<div class="container mx-auto bg-white p-12">
+  
+  <header class="">
+    <h1 class="">Rapportverktøy for Siteimprove NTNU (alfaversjon)</h1>
+  </header>
+  
+  
+  <main class="">
+    <h3 class="">Sites</h3>
+    {#await sites}
+      <p>Loading sites...</p>
+    {:then response}
+      <table class="border rounded">
+        <thead><tr><td>Site name</td><td>ID</td></tr></thead>
+        <tbody>
+        {#each response.msg.items as link}
+          <tr class="bg-white odd:bg-gray-200"><td>{link.site_name}</td><td>{link.id}</td></tr>
+        {/each}
+        </tbody>
+      </table>
+    {/await}
+  
+    <h3>Query response</h3>
+    {#await query}
+      <p>Loading query response...</p>
+    {:then response}
+      <!-- <pre>{ JSON.stringify(response, null, '  ') }</pre> -->
+
+
+    {#each response.msg.items as group}
+      <div>
+        <input type="checkbox" name="group" value="{group.id}">
+        <label for="{group.id}">{group.group_name}</label>
+      </div>
+    {/each}
+
+    {/await}
+  </main>
+
+</div>
